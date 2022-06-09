@@ -1,4 +1,4 @@
-package com.perscholas.gameoncapstone;
+package com.killoranrivers.gameoncapstone;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

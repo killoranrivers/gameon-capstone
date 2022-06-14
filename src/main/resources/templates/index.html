@@ -30,28 +30,29 @@
 
 <body>
 <div id="page-container">
-    <div class="container-fluid">
-        <div class="row mt-1 justify-content-end">
-            <div class="col-auto me-1" id="sign-in">
-
+    <nav class="navbar navbar-expand-md navbar-dark py-0">
+        <div class="container-fluid mb-5">
+            <a class="navbar-brand ms-5 ps-5 me-0" th:href="@{index.html}" id="big-title">GAME ON</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggled-nav" aria-controls="toggled-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="toggled-nav">
+                <div class="navbar-nav d-flex flex-column" id="sign-in">
+                    <!-- Dynamically generated content -->
+                </div>
             </div>
         </div>
+    </nav>
 
-        <div class="row mt-3" id="title">
-            <div class="col-auto text-center mx-auto">
-                <h1><a th:href="@{index.html}">GAME ON</a></h1>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
+    <div class="container mt-5">
         <form>
-            <div class="row justify-content-center" id="search-row">
-                <div class="col-5 text-center">
+            <div class="row justify-content-center">
+                <div class="col-5 text-center mt-5 search-font">
                     <input type="search" class="form-control form-control-lg text-center mb-2" id="search-bar"
                            placeholder="Search for a game!">
 
-                    <button class="btn btn-outline-light btn-lg mt-3 w-50" type="submit" id="search-btn">SEARCH</button>
+                    <button class="btn btn-outline-light btn-lg mt-3 w-50" type="submit"
+                            id="search-btn">SEARCH</button>
                 </div>
             </div>
         </form>

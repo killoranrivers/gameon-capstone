@@ -30,32 +30,29 @@
 
 <body>
 <div id="page-container">
-    <div class="container-fluid">
-        <header class="row justify-content-start align-items-center">
-            <div class="col-auto" id="small-title">
-                <a th:href="@{index}">GAME ON</a>
-            </div>
-
-            <div class="col-5 ms-4">
-                <div class="input-group">
-                    <input type="search" class="form-control w-75" placeholder="Search for a game!">
-                    <button class="btn btn-sm" type="submit" id="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
+    <nav class="navbar navbar-expand-md navbar-dark grey-bg">
+        <div class="container-fluid">
+            <a class="navbar-brand me-5" th:href="@{/}" id="small-title">GAME ON</a>
+            <form class="d-flex me-auto search-font" id="nav-search">
+                <input class="form-control me-2" type="search" placeholder="Search for a game!" aria-label="Search" id="search-bar">
+                <button class="btn btn-outline-light" type="submit" id="search-btn"><i class="fas fa-search"></i></button>
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggled-nav" aria-controls="toggled-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="toggled-nav">
+                <div class="navbar-nav d-flex flex-column ms-auto p-2" id="sign-in">
+                    <!-- Dynamically generated content -->
                 </div>
             </div>
-
-            <div class="col-auto ms-auto me-1 my-1 p-2" id="sign-in">
-
-            </div>
-        </header>
-    </div>
+        </div>
+    </nav>
 
     <div class="container" id="content-container">
         <div class="row my-5 justify-content-center">
             <div class="col-4 text-center">
                 <img th:src="@{/images/game-cover.jpg}" height="200px" alt="Game cover image"
-                     id="game-cover"/>
+                     id="game-cover">
             </div>
         </div>
 

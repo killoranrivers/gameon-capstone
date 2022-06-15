@@ -18,7 +18,7 @@
     <link th:href="@{https://fonts.googleapis.com/css2?family=Electrolize&display=swap}" th:rel="stylesheet">
 
     <!-- Font Awesome -->
-    <script th:src="@{https://kit.fontawesome.com/95a97a493a.js}" crossorigin="anonymous"></script>
+    <script th:src="@{https://kit.fontawesome.com/7a263fbe8b.js}" crossorigin="anonymous"></script>
 
     <!-- Bootstrap CSS -->
     <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" th:rel="stylesheet"
@@ -48,31 +48,100 @@
         </div>
     </nav>
 
-    <div class="container" id="content-container">
-        <div class="row my-5 justify-content-center">
-            <div class="col-4 text-center">
-                <img th:src="@{/images/game-cover.jpg}" height="200px" alt="Game cover image"
-                     id="game-cover">
-            </div>
-        </div>
 
-        <div class="row my-4 justify-content-center">
-            <div class="col-8 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h5 class="card-title" id="result-title"></h5>
+    <div class="container" id="content-container">
+        <div class="row my-5 justify-content-evenly">
+            <div class="col-3 text-center">
+                <a th:href="@{/}" class="card game-card h-100 text-decoration-none">
+                    <img th:src="@{/images/game-cover.jpg}" alt="game cover">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title">
+                            Game Title
+                        </h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Release Date: April 01, 1995</li>
+                            <li class="list-group-item">Platforms: PC, PS2, PS3</li>
+                        </ul>
+                        <div class="card-text d-flex justify-content-between">
+                            <div class="hover-message">
+                                                      <span class="fa-stack fa-1x">
+                                                            <i class="fa-solid fa-heart fa-stack-2x"></i>
+                                                            <span class="fa-stack-1x" >27</span>
+                                                      </span>
+                                <span class="hover-text">Favorites</span>
+                            </div>
+                            <div class="hover-message">
+                                                      <span class="fa-stack fa-1x">
+                                                            <i class="fa-solid fa-comment fa-stack-2x"></i>
+                                                            <span class="fa-stack-1x" style="color: black" >15</span>
+                                                      </span>
+                                <span class="hover-text">Comments</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <table id="results-table">
-                            <tr>
-                                <th>Reviewer</th>
-                                <th style="width: 30%">Date Reviewed</th>
-                                <th style="width: 20%">Score</th>
-                                <!-- The rest of the rows will be dynamically populated from reviews array -->
-                            </tr>
-                        </table>
+                </a>
+            </div>
+
+            <div class="col-3 text-center">
+                <a th:href="@{/}" class="card game-card h-100 text-decoration-none">
+                    <img th:src="@{/images/game-cover.jpg}" alt="game cover">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title">
+                            Game Title
+                        </h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Release Date: April 01, 1995</li>
+                            <li class="list-group-item">Platforms: PC, PS2, PS3</li>
+                        </ul>
+                        <div class="card-text d-flex justify-content-between">
+                            <div class="hover-message">
+                                                      <span class="fa-stack fa-1x">
+                                                            <i class="fa-solid fa-heart fa-stack-2x"></i>
+                                                            <span class="fa-stack-1x" >27</span>
+                                                      </span>
+                                <span class="hover-text">Favorites</span>
+                            </div>
+                            <div class="hover-message">
+                                                      <span class="fa-stack fa-1x">
+                                                            <i class="fa-solid fa-comment fa-stack-2x"></i>
+                                                            <span class="fa-stack-1x" style="color: black" >15</span>
+                                                      </span>
+                                <span class="hover-text">Comments</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </a>
+            </div>
+
+            <div class="col-3 text-center">
+                <a th:href="@{/}" class="card game-card h-100 text-decoration-none">
+                    <img th:src="@{/images/game-cover.jpg}" alt="game cover">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title">
+                            Game Title
+                        </h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Release Date: April 01, 1995</li>
+                            <li class="list-group-item">Platforms: PC, PS2, PS3</li>
+                        </ul>
+                        <div class="card-text d-flex justify-content-between">
+                            <div class="hover-message">
+                                                      <span class="fa-stack fa-1x">
+                                                            <i class="fa-solid fa-heart fa-stack-2x"></i>
+                                                            <span class="fa-stack-1x" >27</span>
+                                                      </span>
+                                <span class="hover-text">Favorites</span>
+                            </div>
+                            <div class="hover-message">
+                                                      <span class="fa-stack fa-1x">
+                                                            <i class="fa-solid fa-comment fa-stack-2x"></i>
+                                                            <span class="fa-stack-1x" style="color: black" >15</span>
+                                                      </span>
+                                <span class="hover-text">Comments</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

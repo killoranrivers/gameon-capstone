@@ -1,56 +1,66 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     background-color: black;
 }
+
 #page-container {
     position: relative;
     min-height: 100vh;
 }
+
 #content-container {
     padding-bottom: 8vh;
 }
+
 #home-page body {
     background-image: url("../images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 header {
-    background-color: rgb(32, 31, 31);;
+    background-color: rgb(32, 31, 31);
 }
-a:hover {
-    color: rgb(110, 195, 216);
-}
+
 #title a {
     color: white;
     font-family: 'Press Start 2P', cursive;
     font-size: 85px;
     text-decoration: none;
 }
+
 .grey-bg {
     background-color: rgb(32, 31, 31);
 }
+
 .navbar-brand {
     color: white;
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;
 }
+
 #small-title {
     font-size: 45px;
 }
+
 #big-title {
     font-size: 80px;
     display: block;
     width: 100%;
     text-align: center;
 }
+
 #nav-search {
     width: 35vw;
 }
+
 #search-btn {
     color: white;
 }
+
 #sign-in {
     font-family: 'Electrolize', sans-serif;
     font-size: 20px;
@@ -60,33 +70,25 @@ a:hover {
     width: 6vw;
     text-align: center;
 }
+
 #sign-in a {
     color: white;
     text-decoration: none;
 }
+
 #sign-in a:hover {
     color: rgb(110, 195, 216);
 }
+
 .search-font {
     font-family: 'Electrolize', sans-serif;
 }
-#game-cover {
-    border: 2px solid rgb(110, 195, 216);
-    box-shadow: 0 4px 8px 0 rgb(144, 194, 206), 0 6px 20px 0 rgb(144, 194, 206);
-}
-table {
-    width: 65%;
-    text-align: center;
-    margin: 0 auto;
-}
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
+
 #result-title {
     font-family: 'Electrolize', sans-serif;
     font-size: 30px;
 }
+
 #signin-row {
     margin-top: 20vh;
 }
@@ -99,16 +101,85 @@ table, th, td {
     position: absolute;
     bottom: 0;
 }
+
 #footer a {
     color: rgb(177, 175, 175);
     text-decoration: none;
     margin-right: 9px;
 }
+
 .bg-black {
     background-color: black;
     border: 1px solid white;
 }
+
 .bg-red {
     background-color: black;
     border: 3px solid red;
+}
+
+.game-card,
+.game-card li {
+    background-color: rgb(32, 31, 31);
+    color: white;
+    font-family: 'Electrolize', sans-serif;
+}
+
+.game-card h5,
+.game-card li {
+    color: white;
+}
+
+.fa-heart {
+    font-size: 25px;
+    color: red;
+}
+
+.fa-comment {
+    font-size: 25px;
+}
+
+.card:hover {
+    color: white;
+}
+
+.fa-stack-1x {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: -4px;
+}
+
+.hover-message {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-message .hover-text {
+    visibility: hidden;
+    font-size: 12px;
+    width: 70px;
+    top: 100%;
+    left: 50%;
+    margin-left: -35px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+
+.hover-message:hover .hover-text {
+    visibility: visible;
+}
+
+.hover-message .hover-text::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
 }

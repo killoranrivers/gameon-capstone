@@ -57,10 +57,6 @@ header {
     width: 35vw;
 }
 
-#search-btn {
-    color: white;
-}
-
 #sign-in {
     font-family: 'Electrolize', sans-serif;
     font-size: 20px;
@@ -130,7 +126,7 @@ header {
     color: white;
 }
 
-.fa-heart {
+.fa-solid .fa-heart {
     font-size: 25px;
     color: red;
 }
@@ -139,14 +135,25 @@ header {
     font-size: 25px;
 }
 
+.fa-certificate {
+    color: rgb(84, 151, 167);
+    font-size: 30px;
+}
+
 .card:hover {
     color: white;
 }
 
-.fa-stack-1x {
+.results-num {
     font-size: 12px;
     font-weight: bold;
     margin-top: -4px;
+}
+
+.details-num {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: -1px;
 }
 
 .hover-message {
@@ -182,4 +189,49 @@ header {
     border-width: 5px;
     border-style: solid;
     border-color: transparent transparent white transparent;
+}
+
+.my-card {
+    border: 2px solid rgb(84, 151, 167);
+    border-radius: 10px;
+    min-height: 250px;
+    background-color: rgb(32, 31, 31);
+}
+
+.detail-photo {
+    border-radius: 10px;
+}
+
+.review-div {
+    max-height: 200px;
+    border: 2px solid rgb(129, 129, 129);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 7px 0px;
+}
+
+.review-div::-webkit-scrollbar {
+    width: 16px;
+    background-color: rgb(32, 31, 31);
+}
+
+.review-div::-webkit-scrollbar-thumb {
+    background-color: rgb(7, 7, 7);
+}
+
+.review-div::-webkit-scrollbar-button {
+    border: 1px solid rgb(27, 26, 26);
+    background-color: rgb(11, 11, 11);
+    height: 13px;
+    width: 13px;
+}
+
+.review-div::-webkit-scrollbar-button:vertical:decrement {
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent rgb(53, 52, 52) transparent;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+    border-width: 8px 8px 0 8px;
+    border-color: rgb(53, 52, 52) transparent transparent transparent;
 }

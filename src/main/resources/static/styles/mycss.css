@@ -126,7 +126,7 @@ header {
     color: white;
 }
 
-.fa-solid .fa-heart {
+.fa-stack .fa-heart {
     font-size: 25px;
     color: red;
 }

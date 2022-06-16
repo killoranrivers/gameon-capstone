@@ -2,170 +2,173 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Game On | Search Results</title>
+    <title>Game On | Search Results</title>
 
-  <!-- Google fonts -->
-  <link th:rel="preconnect" th:href="@{https://fonts.googleapis.com}">
-  <link th:rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
-  <link th:href="@{https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap}" th:rel="stylesheet">
+    <!-- Google fonts -->
+    <link th:rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link th:rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap}" th:rel="stylesheet">
 
-  <link th:rel="preconnect" th:href="@{https://fonts.googleapis.com}">
-  <link th:rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
-  <link th:href="@{https://fonts.googleapis.com/css2?family=Electrolize&display=swap}" th:rel="stylesheet">
+    <link th:rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link th:rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Electrolize&display=swap}" th:rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <script th:src="@{https://kit.fontawesome.com/7a263fbe8b.js}" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <script th:src="@{https://kit.fontawesome.com/7a263fbe8b.js}" crossorigin="anonymous"></script>
 
-  <!-- Bootstrap CSS -->
-  <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" th:rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" th:rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <!-- My CSS files -->
-  <link th:href="@{/styles/mycss.css}" th:rel="stylesheet"/>
+    <!-- My CSS files -->
+    <link th:href="@{/styles/mycss.css}" th:rel="stylesheet"/>
 </head>
 
 <body>
 <div id="page-container">
-  <nav class="navbar navbar-expand-md navbar-dark grey-bg">
-    <div class="container-fluid">
-      <a class="navbar-brand me-5" th:href="@{/}" id="small-title">GAME ON</a>
-      <form class="d-flex me-auto electro-font" id="nav-search">
-        <input class="form-control me-2" type="search" placeholder="Search for a game!" aria-label="Search" id="search-bar">
-        <button class="btn btn-outline-light" type="submit" id="search-btn"><i class="fas fa-search"></i></button>
-      </form>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggled-nav" aria-controls="toggled-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="toggled-nav">
-        <div class="navbar-nav d-flex flex-column ms-auto p-2" id="sign-in">
-          <!-- Dynamically generated content -->
+    <nav class="navbar navbar-expand-md navbar-dark grey-bg">
+        <div class="container-fluid">
+            <a class="navbar-brand me-5" th:href="@{/}" id="small-title">GAME ON</a>
+            <form class="d-flex me-auto electro-font" id="nav-search">
+                <input class="form-control me-2" type="search" placeholder="Search for a game!" aria-label="Search"
+                       id="search-bar">
+                <button class="btn btn-outline-light" type="submit" id="search-btn"><i class="fas fa-search"></i>
+                </button>
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggled-nav"
+                    aria-controls="toggled-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="toggled-nav">
+                <div class="navbar-nav d-flex flex-column ms-auto p-2" id="sign-in">
+                    <!-- Dynamically generated content -->
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="container mt-4">
-    <div class="row justify-content-center text-center">
-      <div class="col-9">
-        <h1 style="color: white; font-size: 45px">Recently Commented</h1>
-      </div>
+    <div class="container mt-4">
+        <div class="row justify-content-center text-center">
+            <div class="col-9">
+                <h1 style="color: white; font-size: 45px">Recently Commented Games</h1>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="container" id="content-container">
-    <div class="row my-5 justify-content-evenly">
-      <div class="col-3 text-center">
-        <a th:href="@{/}" class="card game-card h-100 text-decoration-none">
-          <img th:src="@{/images/game-cover.jpg}" alt="game cover">
-          <div class="card-body pb-0">
-            <h5 class="card-title">
-              Game Title
-            </h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Release Date: April 01, 1995</li>
-              <li class="list-group-item">Platforms: PC, PS2, PS3</li>
-            </ul>
-            <div class="card-text d-flex justify-content-between">
-              <div class="hover-message">
+    <div class="container" id="content-container">
+        <div class="row my-5 justify-content-evenly">
+            <div class="col-3 text-center">
+                <a th:href="@{/gamedetails}" class="card game-card h-100 text-decoration-none">
+                    <img th:src="@{/images/game-cover.jpg}" alt="Game cover" class="rounded">
+                    <div class="card-body pb-0">
+                        <h5>
+                            Game Title
+                        </h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Release Date: April 01, 1995</li>
+                            <li class="list-group-item">Platforms: PC, PS2, PS3</li>
+                        </ul>
+                        <div class="card-text d-flex justify-content-between">
+                            <div class="hover-message">
                                                       <span class="fa-stack fa-1x">
                                                             <i class="fa-solid fa-heart fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x" >27</span>
+                                                            <span class="fa-stack-1x results-num">27</span>
                                                       </span>
-                <span class="hover-text">Favorites</span>
-              </div>
-              <div class="hover-message">
+                                <span class="hover-text">Favorites</span>
+                            </div>
+                            <div class="hover-message">
                                                       <span class="fa-stack fa-1x">
                                                             <i class="fa-solid fa-comment fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x" style="color: black" >15</span>
+                                                            <span class="fa-stack-1x results-num"  style="color: black">15</span>
                                                       </span>
-                <span class="hover-text">Comments</span>
-              </div>
+                                <span class="hover-text">Comments</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </div>
-        </a>
-      </div>
 
-      <div class="col-3 text-center">
-        <a th:href="@{/}" class="card game-card h-100 text-decoration-none">
-          <img th:src="@{/images/game-cover.jpg}" alt="game cover">
-          <div class="card-body pb-0">
-            <h5 class="card-title">
-              Game Title
-            </h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Release Date: April 01, 1995</li>
-              <li class="list-group-item">Platforms: PC, PS2, PS3</li>
-            </ul>
-            <div class="card-text d-flex justify-content-between">
-              <div class="hover-message">
+            <div class="col-3 text-center">
+                <a th:href="@{/gamedetails}" class="card game-card h-100 text-decoration-none">
+                    <img th:src="@{/images/game-cover.jpg}" alt="Game cover" class="rounded">
+                    <div class="card-body pb-0">
+                        <h5>
+                            Game Title
+                        </h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Release Date: April 01, 1995</li>
+                            <li class="list-group-item">Platforms: PC, PS2, PS3</li>
+                        </ul>
+                        <div class="card-text d-flex justify-content-between">
+                            <div class="hover-message">
                                                       <span class="fa-stack fa-1x">
                                                             <i class="fa-solid fa-heart fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x" >27</span>
+                                                            <span class="fa-stack-1x results-num">27</span>
                                                       </span>
-                <span class="hover-text">Favorites</span>
-              </div>
-              <div class="hover-message">
+                                <span class="hover-text">Favorites</span>
+                            </div>
+                            <div class="hover-message">
                                                       <span class="fa-stack fa-1x">
                                                             <i class="fa-solid fa-comment fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x" style="color: black" >15</span>
+                                                            <span class="fa-stack-1x results-num" style="color: black">15</span>
                                                       </span>
-                <span class="hover-text">Comments</span>
-              </div>
+                                <span class="hover-text">Comments</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </div>
-        </a>
-      </div>
 
-      <div class="col-3 text-center">
-        <a th:href="@{/}" class="card game-card h-100 text-decoration-none">
-          <img th:src="@{/images/game-cover.jpg}" alt="game cover">
-          <div class="card-body pb-0">
-            <h5 class="card-title">
-              Game Title
-            </h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Release Date: April 01, 1995</li>
-              <li class="list-group-item">Platforms: PC, PS2, PS3</li>
-            </ul>
-            <div class="card-text d-flex justify-content-between">
-              <div class="hover-message">
+            <div class="col-3 text-center">
+                <a th:href="@{/gamedetails}" class="card game-card h-100 text-decoration-none">
+                    <img th:src="@{/images/game-cover.jpg}" alt="Game cover" class="rounded">
+                    <div class="card-body pb-0">
+                        <h5>
+                            Game Title
+                        </h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Release Date: April 01, 1995</li>
+                            <li class="list-group-item">Platforms: PC, PS2, PS3</li>
+                        </ul>
+                        <div class="card-text d-flex justify-content-between">
+                            <div class="hover-message">
                                                       <span class="fa-stack fa-1x">
                                                             <i class="fa-solid fa-heart fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x" >27</span>
+                                                            <span class="fa-stack-1x results-num">27</span>
                                                       </span>
-                <span class="hover-text">Favorites</span>
-              </div>
-              <div class="hover-message">
+                                <span class="hover-text">Favorites</span>
+                            </div>
+                            <div class="hover-message">
                                                       <span class="fa-stack fa-1x">
                                                             <i class="fa-solid fa-comment fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x" style="color: black" >15</span>
+                                                            <span class="fa-stack-1x results-num" style="color: black">15</span>
                                                       </span>
-                <span class="hover-text">Comments</span>
-              </div>
+                                <span class="hover-text">Comments</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </div>
-        </a>
-      </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <div class="container-fluid">
-    <footer class="row justify-content-between align-items-center mt-5" id="footer">
-      <div class="col-auto">
-        &copy; 2022 KILLORAN RIVERS
-      </div>
-      <div class="col-auto">
-        <a th:href="@{https://www.redventures.com/legal/privacy-policy}">Privacy Policy</a>
-        <a th:href="@{https://cookies.co/}">Cookie Settings</a>
-        <a th:href="@{https://www.redventures.com/legal/cmg-terms-of-use}">Terms of Use</a>
-      </div>
-    </footer>
-  </div>
+    <!-- Footer -->
+    <div class="container-fluid">
+        <footer class="row justify-content-between align-items-center mt-5" id="footer">
+            <div class="col-auto">
+                &copy; 2022 KILLORAN RIVERS
+            </div>
+            <div class="col-auto">
+                <a th:href="@{https://www.redventures.com/legal/privacy-policy}">Privacy Policy</a>
+                <a th:href="@{https://cookies.co/}">Cookie Settings</a>
+                <a th:href="@{https://www.redventures.com/legal/cmg-terms-of-use}">Terms of Use</a>
+            </div>
+        </footer>
+    </div>
 </div>
 
 <!-- Bootstrap JS-->

@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/results")
-public class ResultsController {
+@RequestMapping("/profile")
+public class ProfileController {
     @GetMapping
-    public String viewResults() {
-        return "results";
+    public String getProfile() {
+        return "profile";
     }
 }

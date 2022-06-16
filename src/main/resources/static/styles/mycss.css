@@ -121,11 +121,6 @@ header {
     font-family: 'Electrolize', sans-serif;
 }
 
-.game-card h5,
-.game-card li {
-    color: white;
-}
-
 .fa-stack .fa-heart {
     font-size: 25px;
     color: red;
@@ -140,8 +135,16 @@ header {
     font-size: 30px;
 }
 
-.card:hover {
+.game-card:hover {
     color: white;
+}
+.profile-card {
+    background-color: black;
+    color: white;
+    font-family: 'Electrolize', sans-serif;
+}
+.profile-card h1 {
+    font-size: 16px;
 }
 
 .results-num {
@@ -205,6 +208,7 @@ header {
 .review-div {
     max-height: 200px;
     border: 2px solid rgb(129, 129, 129);
+    background: black;
     padding: 20px;
     border-radius: 10px;
     margin: 7px 0px;

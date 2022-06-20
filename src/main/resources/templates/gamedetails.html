@@ -30,48 +30,7 @@
 
 <body>
 <div id="page-container">
-    <nav class="navbar navbar-expand-md navbar-dark grey-bg">
-        <div class="container-fluid">
-            <a class="navbar-brand me-5" th:href="@{/}" id="small-title">GAME ON</a>
-            <form class="d-flex me-auto electro-font" id="nav-search">
-                <input class="form-control me-2" type="search" placeholder="Search for a game!"
-                       aria-label="Search" id="search-bar">
-                <button class="btn btn-outline-light" type="submit" id="search-btn"><i
-                        class="fas fa-search"></i></button>
-            </form>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#toggled-nav" aria-controls="toggled-nav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="toggled-nav">
-                <ul class="navbar-nav w-100 justify-content-end">
-                    <li class="nav-item my-auto">
-                        <a th:href="@{/profile}" class="nav-link hover-message">
-                            <i class="fa-solid fa-circle-user"></i>
-                            <span class="hover-text">Account</span>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown my-auto me-4">
-                        <a class="nav-link dropdown-toggle" th:href="@{#}" id="exploreDropdown"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Explore
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="exploreDropdown">
-                            <li><a class="dropdown-item" th:href="@{/toprated}">Top Rated</a></li>
-                            <li><a class="dropdown-item" th:href="@{/recent}">Recently Commented</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <div class="d-flex flex-column p-2" id="sign-in">
-                            <div><a th:href="@{/signin}">Sign In</a></div>
-                            <div><a th:href="@{/signup}">Sign Up</a></div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div th:replace="fragments/navbar :: navbar"></div>
 
     <div class="container mt-5" id="content-container">
         <div class="row justify-content-center">
@@ -157,9 +116,9 @@
         crossorigin="anonymous"></script>
 
 <!-- My Javascript & jQuery-->
-<script type="text/javascript" th:src="@{/javascript/results.js}"></script>
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/javascript/results.js}"></script>
 
 </body>
 </html>

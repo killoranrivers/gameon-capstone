@@ -7,14 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/gamedetails")
+@RequestMapping
 public class GameDetailsController {
-    @GetMapping
-    public String viewDetails() {
-        return "gamedetails";
-    }
-
-    @GetMapping("{gameId}")
+    @GetMapping("/gamedetails/{gameId}")
     public String getSpecificGame(@PathVariable("gameId") Long gameId) {
         return "gamedetails";
     }

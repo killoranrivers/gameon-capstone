@@ -46,7 +46,6 @@ $(document).ready(function () {
         event.preventDefault();
         let userInput = $("#search-bar").val().trim();
         sessionStorage.setItem("game", userInput);
-        sessionStorage.setItem("redirect", "true");
         window.location.href = "results";
     });
 

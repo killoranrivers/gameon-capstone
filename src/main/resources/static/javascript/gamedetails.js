@@ -8,14 +8,7 @@ $(document).ready(function () {
     let gameId = window.location.href.substring(
         window.location.href.lastIndexOf("/") + 1);
 
-    //
-    if (sessionStorage.getItem("redirect") == true) {
-        sessionStorage.setItem("redirect", "false");
-        gameSearch(gameId);
-    } else {
-        $("#results-div").empty();
-        gameSearch(gameId);
-    }
+    gameSearch(gameId);
 
     // Display Logout or Sign In/Up, depending on the user's login status
     renderLogin(signedIn);
@@ -71,10 +64,9 @@ $(document).ready(function () {
     // When user searches for a game, save the input to a variable, save to session storage, and send user to results page
     $("#search-btn").on("click", function (event) {
         event.preventDefault();
-        $("#results-div").empty();
-        const userInput = $("#search-bar").val().trim();
+        let userInput = $("#search-bar").val().trim();
         sessionStorage.setItem("game", userInput);
-        gameSearch(userInput);
+        window.location.href = "/results";
     });
 
 

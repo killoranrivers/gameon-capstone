@@ -7,14 +7,10 @@ $(document).ready(function () {
     // Remember last searched game in session storage, so it will persist on refresh
     let game = sessionStorage.getItem("game");
 
-    // If
-    if (sessionStorage.getItem("redirect") == true) {
-        sessionStorage.setItem("redirect", "false");
-        gameSearch(game);
-    } else {
-        $("#results-div").empty();
-        gameSearch(game);
-    }
+
+    $("#results-div").empty();
+    gameSearch(game);
+
 
     // Display Logout or Sign In/Up, depending on the user's login status
     renderLogin(signedIn);
@@ -73,7 +69,7 @@ $(document).ready(function () {
         $("#results-div").empty();
         const userInput = $("#search-bar").val().trim();
         sessionStorage.setItem("game", userInput);
-        gameSearch(userInput);
+        window.location.href = "results";
     });
 
 
@@ -102,7 +98,7 @@ $(document).ready(function () {
 
                 const content = `
         <div class="text-center mb-3">
-          <a href="gamedetails/${gameId}" class="card game-card h-100 text-decoration-none">
+          <a href="/gamedetails/${gameId}" class="card game-card h-100 text-decoration-none">
             <img src=${response.results[i].background_image} alt="Game cover" class="rounded" height="220px">
             <div class="card-body pb-0">
                   <h5>

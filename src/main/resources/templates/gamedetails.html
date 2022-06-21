@@ -37,13 +37,13 @@
             <div class="col-10">
                 <div class="row my-card">
                     <div class="col-4 ms-2 my-auto">
-                        <img th:src="@{/images/game-cover.jpg}" class="img-fluid detail-photo" alt="game cover">
+                        <img class="img-fluid detail-photo" alt="Game cover">
                     </div>
                     <div class="col-6 text-center electro-font text-white py-3 my-auto">
-                        <h1>Game Title</h1>
+                        <h1 id="game-title"></h1>
                         <p>Score <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-certificate fa-stack-2x"></i>
-                                    <span class="fa-stack-1x details-num">8.2</span>
+                                    <span class="fa-stack-1x details-num" id="score"></span>
                                 </span> | Favorites <span class="fa-stack fa-1x">
                                     <i class="fa-solid fa-heart fa-stack-2x" style="font-size: 30px"></i>
                                     <span class="fa-stack-1x details-num">27</span>
@@ -118,7 +118,7 @@
 <!-- My Javascript & jQuery-->
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/javascript/results.js}"></script>
+<script type="text/javascript" th:src="@{/javascript/gamedetails.js}"></script>
 
 </body>
 </html>

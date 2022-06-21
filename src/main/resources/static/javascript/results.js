@@ -97,10 +97,12 @@ $(document).ready(function () {
                     });
                 }
                 let platformsList = platformsArr.join(", ");
+                let gameId = response.results[i].id;
+                console.log(gameId);
 
                 const content = `
         <div class="text-center mb-3">
-          <a th:href="@{/gamedetails}" class="card game-card h-100 text-decoration-none">
+          <a href="gamedetails/${gameId}" class="card game-card h-100 text-decoration-none">
             <img src=${response.results[i].background_image} alt="Game cover" class="rounded" height="220px">
             <div class="card-body pb-0">
                   <h5>

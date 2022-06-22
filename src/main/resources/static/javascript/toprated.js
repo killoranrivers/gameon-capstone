@@ -1,14 +1,12 @@
-$(document).ready(function () {
+$(document).ready(function() {
     const regEx = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}", "g");
     // Target email input for Sign In/Up so I can change the color
     const emailInput = $("#email-input");
     // Save signed-in status to variable
     let signedIn = sessionStorage.getItem("signedIn");
-    // Get game id from url
-    let gameId = window.location.href.substring(
-        window.location.href.lastIndexOf("/") + 1);
 
-    gameSearch(gameId);
+    $("#results-div").empty();
+    topRated();
 
     // Display Logout or Sign In/Up, depending on the user's login status
     renderLogin(signedIn);
@@ -24,7 +22,7 @@ $(document).ready(function () {
             emailInput.removeClass("bg-black").addClass("bg-red");
             alert(`Please enter a valid email!`);
         }
-    }
+    };
 
     // Check the session storage for login status
     function renderLogin(status) {
@@ -36,7 +34,7 @@ $(document).ready(function () {
                  <div><a th:href="@{/signup}">Sign Up</a></div>`
             );
         }
-    }
+    };
 
     // When signing in, save the user email input to a variable and send it to validate() as an argument
     $("#signin-btn").on("click", function (event) {
@@ -64,29 +62,69 @@ $(document).ready(function () {
     // When user searches for a game, save the input to a variable, save to session storage, and send user to results page
     $("#search-btn").on("click", function (event) {
         event.preventDefault();
+        $("#results-div").empty();
         const userInput = $("#search-bar").val().trim();
         sessionStorage.setItem("game", userInput);
         window.location.href = "/results";
     });
 
-
-    function gameSearch(gameId) {
+    function topRated() {
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": `https://api.rawg.io/api/games/${gameId}?key=00ae136b87af4d27b508fe9826ca73c2`,
+            "url": `https://api.rawg.io/api/games?key=00ae136b87af4d27b508fe9826ca73c2&ordering=-metacritic`,
             "method": "GET"
         };
 
-        $.ajax(settings).done(function (response) {
+        $.ajax(settings).done(function(response) {
             console.log(response);
-            const photo = response.background_image;
-            const title = response.name;
-            const score = response.metacritic;
 
-            $(".detail-photo").attr("src", photo);
-            $("#game-title").text(title);
-            $("#score").text(score);
+            for (let i = 0; i < 8; i++) {
+
+                let platformsArr = [];
+                if (response.results[i].platforms) {
+                    response.results[i].platforms.forEach(function (platform) {
+                        platformsArr.push(platform.platform.name);
+                    });
+                }
+                let platformsList = platformsArr.join(", ");
+                let gameId = response.results[i].id;
+
+                const content = `
+        <div class="text-center mb-3">
+          <a href="/gamedetails/${gameId}" class="card game-card h-100 text-decoration-none">
+            <img src=${response.results[i].background_image} alt="Game cover" class="rounded" height="220px">
+            <div class="card-body pb-0">
+                  <h5>
+                        ${response.results[i].name}
+                  </h5>
+                  <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Release Date: ${response.results[i].released}</li>
+                        <li class="list-group-item">Platforms: ${platformsList}</li>
+                  </ul>
+                  <div class="card-text d-flex justify-content-between">
+                        <div class="hover-message">
+                              <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-heart fa-stack-2x"></i>
+                                    <span class="fa-stack-1x results-num">27</span>
+                              </span>
+                              <span class="hover-text">Favorites</span>
+                        </div>
+                        <div class="hover-message">
+                              <span class="fa-stack fa-1x">
+                                    <i class="fa-solid fa-comment fa-stack-2x"></i>
+                                    <span class="fa-stack-1x results-num"
+                                          style="color: black">15</span>
+                              </span>
+                              <span class="hover-text">Comments</span>
+                        </div>
+                  </div>
+            </div>
+          </a>
+        </div>`;
+
+                $("#results-div").append(content);
+            }
         });
     }
-});
+})

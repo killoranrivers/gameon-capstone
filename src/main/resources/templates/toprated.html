@@ -41,99 +41,8 @@
     </div>
 
     <div class="container" id="content-container">
-        <div class="row my-5 justify-content-evenly">
-            <div class="col-3 text-center">
-                <a th:href="@{/gamedetails}" class="card game-card h-100 text-decoration-none">
-                    <img th:src="@{/images/game-cover.jpg}"  class="rounded" alt="Game cover">
-                    <div class="card-body pb-0">
-                        <h5>
-                            Game Title
-                        </h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Release Date: April 01, 1995</li>
-                            <li class="list-group-item">Platforms: PC, PS2, PS3</li>
-                        </ul>
-                        <div class="card-text d-flex justify-content-between">
-                            <div class="hover-message">
-                                                      <span class="fa-stack fa-1x">
-                                                            <i class="fa-solid fa-heart fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x results-num">27</span>
-                                                      </span>
-                                <span class="hover-text">Favorites</span>
-                            </div>
-                            <div class="hover-message">
-                                                      <span class="fa-stack fa-1x">
-                                                            <i class="fa-solid fa-comment fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x results-num" style="color: black" >15</span>
-                                                      </span>
-                                <span class="hover-text">Comments</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-3 text-center">
-                <a th:href="@{/gamedetails}" class="card game-card h-100 text-decoration-none">
-                    <img th:src="@{/images/game-cover.jpg}"  class="rounded" alt="Game cover">
-                    <div class="card-body pb-0">
-                        <h5>
-                            Game Title
-                        </h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Release Date: April 01, 1995</li>
-                            <li class="list-group-item">Platforms: PC, PS2, PS3</li>
-                        </ul>
-                        <div class="card-text d-flex justify-content-between">
-                            <div class="hover-message">
-                                                      <span class="fa-stack fa-1x">
-                                                            <i class="fa-solid fa-heart fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x results-num">27</span>
-                                                      </span>
-                                <span class="hover-text">Favorites</span>
-                            </div>
-                            <div class="hover-message">
-                                                      <span class="fa-stack fa-1x">
-                                                            <i class="fa-solid fa-comment fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x results-num" style="color: black" >15</span>
-                                                      </span>
-                                <span class="hover-text">Comments</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-3 text-center">
-                <a th:href="@{/gamedetails}" class="card game-card h-100 text-decoration-none">
-                    <img th:src="@{/images/game-cover.jpg}"  class="rounded" alt="Game cover">
-                    <div class="card-body pb-0">
-                        <h5>
-                            Game Title
-                        </h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Release Date: April 01, 1995</li>
-                            <li class="list-group-item">Platforms: PC, PS2, PS3</li>
-                        </ul>
-                        <div class="card-text d-flex justify-content-between">
-                            <div class="hover-message">
-                                                      <span class="fa-stack fa-1x">
-                                                            <i class="fa-solid fa-heart fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x results-num">27</span>
-                                                      </span>
-                                <span class="hover-text">Favorites</span>
-                            </div>
-                            <div class="hover-message">
-                                                      <span class="fa-stack fa-1x">
-                                                            <i class="fa-solid fa-comment fa-stack-2x"></i>
-                                                            <span class="fa-stack-1x results-num" style="color: black" >15</span>
-                                                      </span>
-                                <span class="hover-text">Comments</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <div class="d-flex flex-wrap my-5 justify-content-evenly" id="results-div">
+            <!-- Cards will dynamically populate inside this div -->
         </div>
     </div>
 
@@ -160,7 +69,7 @@
 <!-- My Javascript & jQuery-->
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/javascript/results.js}"></script>
+<script type="text/javascript" th:src="@{/javascript/toprated.js}"></script>
 
 </body>
 </html>

@@ -9,13 +9,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CommentRepository extends JpaRepository<Comment, Long> {
+public interface CommentRepository extends JpaRepository<Comment, Integer> {
  // Custom queries here
     @Modifying(clearAutomatically=true, flushAutomatically=true)
-    @Query("SELECT c FROM Comment c WHERE c.games.id = ?1")
-    List<Comment> findCommentsByGameId(Long gameId);
+    @Query("SELECT c FROM Comment c JOIN c.games g ON g.id = ?1")
+    List<Comment> findCommentsByGameId(Integer gameId);
 
 //    @Modifying(clearAutomatically=true, flushAutomatically=true)
 //    @Query("SELECT comment FROM comments WHERE userId = ?1")
-//    List<Comment> findCommentsByUserId(Long userId);
+//    List<Comment> findCommentsByUserId(Integer userId);
 }

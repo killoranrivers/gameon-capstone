@@ -5,15 +5,12 @@ import com.killoranrivers.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@RestController
+@Controller
 @RequestMapping
 public class GameDetailsController {
     private final CommentService commentService;
@@ -24,12 +21,14 @@ public class GameDetailsController {
     }
 
     @GetMapping("/comments")
+    @ResponseBody
     public List<Comment> getComments() {
-        return commentService.getGameComments(2454L);
+        return commentService.getGameComments(2454);
     }
     
     @GetMapping("/gamedetails/{gameId}")
-    public String getSpecificGame(@PathVariable Long gameId) {
+    public String getSpecificGame(@PathVariable Integer gameId, Model model) {
+        model.addAttribute("comments", commentService.getGameComments(gameId));
         return "gamedetails";
     }
 }

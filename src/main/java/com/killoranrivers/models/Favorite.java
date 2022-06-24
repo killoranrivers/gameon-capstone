@@ -17,7 +17,7 @@
 //            strategy = GenerationType.SEQUENCE,
 //            generator = "favorite_sequence"
 //    )
-//    private Long id;
+//    private Integer id;
 //
 //    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    @JoinColumn(name = "user_id")

@@ -61,35 +61,11 @@
                     <div class="col-10 text-center py-2 mb-5 h-100" style="border-bottom: 1px solid black;">
                         <h1 class="electro-font text-white">Comments</h1>
                     </div>
-                    <div class="col-11 review-div text-white overflow-auto">
+                    <div th:each="comment: ${comments}" class="col-11 review-div text-white overflow-auto">
                         <p>By username | Date: March 07, 2021</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                            est laborum.</p>
+                        <p th:text="${comment.comment}"></p>
                     </div>
 
-                    <div class="col-11 review-div text-white overflow-auto">
-                        <p>By username | Date: March 07, 2021</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                            est laborum.</p>
-                    </div>
-
-                    <div class="col-11 review-div text-white overflow-auto">
-                        <p>By username | Date: March 07, 2021</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                            est laborum.</p>
-                    </div>
                 </div>
             </div>
         </div>

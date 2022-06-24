@@ -16,7 +16,7 @@ public class CommentService {
         this.commentRepository = commentRepository;
     }
 
-    public List<Comment> getGameComments(Long gameId) {
+    public List<Comment> getGameComments(Integer gameId) {
         return commentRepository.findCommentsByGameId(gameId);
     }
 }

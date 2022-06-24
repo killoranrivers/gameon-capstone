@@ -19,7 +19,7 @@
 //            strategy = GenerationType.SEQUENCE,
 //            generator = "user_sequence"
 //    )
-//    private Long id;
+//    private Integer id;
 //    private String username;
 //    private String email;
 //    private String password;

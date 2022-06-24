@@ -10,7 +10,7 @@ import java.util.List;
 @Data @NoArgsConstructor
 public class Game {
     @Id
-    private Long id;
+    private Integer id;
 
     @Column
     private String title;

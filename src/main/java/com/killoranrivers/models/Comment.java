@@ -17,7 +17,7 @@ public class Comment {
             strategy = GenerationType.SEQUENCE,
             generator = "comment_sequence"
     )
-    private Long id;
+    private Integer id;
 
     @Column
     private String comment;

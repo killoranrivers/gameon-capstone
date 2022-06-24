@@ -19,13 +19,15 @@ public class Comment {
     )
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "game_id")
-    private Game game;
-
+    @Column
     private String comment;
+
+//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private User user;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "game_id", referencedColumnName = "id")
+    private Game games;
+
 }

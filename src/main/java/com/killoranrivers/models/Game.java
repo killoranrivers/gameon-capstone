@@ -10,21 +10,14 @@ import java.util.List;
 @Data @NoArgsConstructor
 public class Game {
     @Id
-    @SequenceGenerator(
-            name = "game_sequence",
-            sequenceName = "game_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "game_sequence"
-    )
     private Long id;
+
+    @Column
     private String title;
 
-    @OneToMany(mappedBy = "games")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "games", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "games")
-    private List<Favorite> favorites = new ArrayList<>();
+//    @OneToMany(mappedBy = "games")
+//    private List<Favorite> favorites = new ArrayList<>();
 }

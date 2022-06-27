@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Game On | Sign Up</title>
+
+    <!-- Google fonts -->
+    <link th:rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link th:rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap}" th:rel="stylesheet">
+
+    <link th:rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link th:rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Electrolize&display=swap}" th:rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script th:src="@{https://kit.fontawesome.com/7a263fbe8b.js}" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" th:rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- My CSS files -->
+    <link th:href="@{/styles/mycss.css}" th:rel="stylesheet"/>
+</head>
+
+<body>
+<div id="page-container">
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container mt-5" id="content-container">
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">You've successfully registered!</div>
+                </div>
+
+                <h2 class="text-center text-white mb-3">Sign Up</h2>
+                <form th:action="@{/registration}" th:object="${user}" method="post">
+                    <p class="error-message" th:if="${#fields.hasGlobalErrors()}"
+                       th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
+                        error</p>
+
+                    <div class="form-group"
+                         th:classappend="${#fields.hasErrors('username')}? 'has-error':''">
+                        <label for="username-input" class="form-label mb-0 text-white">Username</label>
+                        <input type="text" class="form-control mb-3 bg-black" id="username-input"
+                               th:field="*{username}">
+                        <p class="error-message"
+                           th:each="error: ${#fields.errors('username')}"
+                           th:text="${error}">Validation error</p>
+                    </div>
+
+                    <div class="form-group"
+                         th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
+                        <label for="email-input" class="form-label mb-0 text-white">Email</label>
+                        <input type="email" class="form-control mb-3 bg-black"
+                               id="email-input" th:field="*{email}">
+                        <p class="error-message"
+                           th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation
+                            error</p>
+                    </div>
+
+                    <div class="form-group"
+                         th:classappend="${#fields.hasErrors('confirmEmail')}? 'has-error':''">
+                        <label for="confirm-email" class="form-label mb-0 text-white">Confirm
+                            e-mail</label>
+                        <input type="email" id="confirm-email" class="form-control mb-3 bg-black"
+                               th:field="*{confirmEmail}"/>
+                        <p class="error-message"
+                           th:each="error : ${#fields.errors('confirmEmail')}"
+                           th:text="${error}">Validation error</p>
+                    </div>
+
+                    <div class="form-group"
+                         th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
+                        <label for="password-input" class="form-label mb-0 text-white">Password</label>
+                        <input type="password" class="form-control mb-3 bg-black"
+                               id="password-input" th:field="*{password}">
+                    </div>
+
+                    <div class="form-group"
+                         th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
+                        <label for="confirmPassword" class="form-label mb-0 text-white">Confirm
+                            password</label>
+                        <input id="confirmPassword" class="form-control mb-3 bg-black"
+                               type="password" th:field="*{confirmPassword}"/>
+                        <p class="error-message"
+                           th:each="error : ${#fields.errors('confirmPassword')}"
+                           th:text="${error}">Validation error</p>
+                    </div>
+                    <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary w-100" id="signup-btn">Create Account</button>
+                        <span class="text-white">Already registered? <a href="/" th:href="@{/login}">Login
+                       here</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid">
+        <footer class="row justify-content-between align-items-center mt-5" id="footer">
+            <div class="col-auto">
+                &copy; 2022 KILLORAN RIVERS
+            </div>
+            <div class="col-auto">
+                <a href="https://www.redventures.com/legal/privacy-policy">Privacy Policy</a>
+                <a href="https://cookies.co/">Cookie Settings</a>
+                <a href="https://www.redventures.com/legal/cmg-terms-of-use">Terms of Use</a>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!-- Bootstrap JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+<!-- My Javascript & jQuery-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="./assets/js/index.js"></script>
+</body>
+
+</html>

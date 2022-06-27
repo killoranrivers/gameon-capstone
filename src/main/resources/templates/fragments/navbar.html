@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
 </head>
@@ -38,8 +38,15 @@
                 </li>
                 <li class="nav-item">
                     <div class="d-flex flex-column p-2" id="sign-in">
-                        <div><a th:href="@{/signin}">Sign In</a></div>
-                        <div><a th:href="@{/signup}">Sign Up</a></div>
+                        <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+                            <input type="submit" value="Logout" />
+                        </form>
+                        <div sec:authorize="isAuthenticated()"><a th:href="@{/}" id='logout-btn'>Logout</a>
+                        </div>
+                        <div sec:authorize="isAnonymous()">
+                            <div><a th:href="@{/login}">Sign In</a></div>
+                            <div><a th:href="@{/registration}">Sign Up</a></div>
+                        </div>
                     </div>
                 </li>
             </ul>

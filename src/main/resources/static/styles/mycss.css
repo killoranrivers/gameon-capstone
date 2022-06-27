@@ -248,3 +248,13 @@ header {
     border-width: 8px 8px 0 8px;
     border-color: rgb(53, 52, 52) transparent transparent transparent;
 }
+
+.comment-form {
+    background-color: dimgrey;
+}
+
+.comment-textarea {
+    background-color: black;
+    color: white;
+    font-family: 'Electrolize', sans-serif;
+}

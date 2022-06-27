@@ -2,22 +2,41 @@ package com.killoranrivers.models;
 
 import lombok.*;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="games")
-@Data @NoArgsConstructor
-public class Game {
+@AllArgsConstructor @NoArgsConstructor
+public class Game implements Serializable {
+    public Game(Integer id) {
+        this.id = id;
+    }
+
     @Id
     private Integer id;
 
-    @Column
-    private String title;
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "games", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "game", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "games")
+//    @OneToMany(mappedBy = "game")
 //    private List<Favorite> favorites = new ArrayList<>();
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 }

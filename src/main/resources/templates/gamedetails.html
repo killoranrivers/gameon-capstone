@@ -58,12 +58,19 @@
         <div class="row justify-content-center mt-4">
             <div class="col-10">
                 <div class="row justify-content-center my-card pb-5 mb-5">
+
                     <div class="col-10 text-center py-2 mb-5 h-100" style="border-bottom: 1px solid black;">
                         <h1 class="electro-font text-white">Comments</h1>
                     </div>
+                    <form method="post" th:action="@{/gamedetails/{gameId}/comment (gameId = ${gameId})}" th:object="${newComment}" class="col-9 card p-3 mb-5 comment-form">
+                        <div class="form-group">
+                            <textarea class="form-control comment-textarea" th:field="*{text}" th:name="text"></textarea>
+                        </div>
+                        <input type="submit" class="btn btn-dark w-50 mt-3 mx-auto" value="Add Comment">
+                    </form>
                     <div th:each="comment: ${comments}" class="col-11 review-div text-white overflow-auto">
                         <p>By username | Date: March 07, 2021</p>
-                        <p th:text="${comment.comment}"></p>
+                        <p th:text="${comment.text}"></p>
                     </div>
 
                 </div>

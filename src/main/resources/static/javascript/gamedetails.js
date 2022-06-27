@@ -87,6 +87,7 @@ $(document).ready(function () {
             $(".detail-photo").attr("src", photo);
             $("#game-title").text(title);
             $("#score").text(score);
+            $("#title").attr("th:name", title);
         });
     }
 });

@@ -36,6 +36,10 @@ public class CommentService {
         return commentRepository.findNewComments();
     }
 
+    public Set<Comment> getUserComments(Integer userId) {
+        return commentRepository.findCommentsByUserId(userId);
+    }
+
     public void addGameComment(Integer gameId, Integer userId, Comment newComment, User user, Game game) {
         // Check if game exists in database (meaning it already has comments tied to it)
         Optional<Game> gameOptional = gameRepository.findById(gameId);

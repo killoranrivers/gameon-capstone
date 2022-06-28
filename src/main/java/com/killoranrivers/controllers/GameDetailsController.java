@@ -31,11 +31,9 @@ public class GameDetailsController {
     // This will only run if user submits the Thymeleaf form with method="post" th:action="@{/gamedetails/{gameId}/comment}"
     public String addComment(@PathVariable Integer gameId, Model model, @ModelAttribute Comment newComment, @RequestParam(value = "title", required = false) String title, Principal principal) {
         String email = principal.getName();
-        Integer userId = userService.findByEmail(email).getId();
-        User user = new User();
-        user.setId(user.getId());
+        User user = userService.findByEmail(email);
         Game game = new Game(gameId, title);
-        commentService.addGameComment(gameId, userId, newComment, user, game);
+        commentService.addGameComment(gameId, newComment, user, game);
         return "redirect:/gamedetails/{gameId}";
     }
 

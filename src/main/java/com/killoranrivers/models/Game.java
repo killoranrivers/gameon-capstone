@@ -27,7 +27,7 @@ public class Game implements Serializable {
     @Column
     private String title;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "game", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "game", cascade = CascadeType.ALL)
     private Set<Comment> comments = new HashSet<>();
 
 //    @OneToMany(fetch = FetchType.EAGER, mappedBy = "game", cascade = CascadeType.ALL)
@@ -57,4 +57,5 @@ public class Game implements Serializable {
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
+
 }

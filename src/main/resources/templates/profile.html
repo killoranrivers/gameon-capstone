@@ -101,7 +101,7 @@
                                 <span class="hover-text">Edit</span>
                             </div>
                             <div class="hover-message">
-                                <i class="fa-solid fa-trash-can"></i>
+                                <a th:href="@{/profile/deleteComment/{id}(id=${comment.id})}" id="delete-comment"><i class="fa-solid fa-trash-can"></i></a>
                                 <span class="hover-text">Delete</span>
                             </div>
                         </div>

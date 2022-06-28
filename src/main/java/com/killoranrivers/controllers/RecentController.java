@@ -18,7 +18,7 @@ public class RecentController {
     }
     @GetMapping
     public String viewRecent(Model model) {
-        model.addAttribute("newComments", commentService.getNewComments());
+//        model.addAttribute("newComments", commentService.getNewComments());
         return "recent";
     }
 }

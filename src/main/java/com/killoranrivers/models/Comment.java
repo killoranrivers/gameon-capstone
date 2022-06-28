@@ -32,11 +32,11 @@ public class Comment implements Serializable {
     @Column
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name = "game_id", referencedColumnName = "id")
     private Game game; // This variable is referred to in CommentRepository when I do the custom query, and Comment Service when I create game objects (rows in games table) (?)
 

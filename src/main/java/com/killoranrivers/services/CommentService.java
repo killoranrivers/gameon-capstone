@@ -40,23 +40,27 @@ public class CommentService {
         return commentRepository.findCommentsByUserId(userId);
     }
 
-    public void addGameComment(Integer gameId, Integer userId, Comment newComment, User user, Game game) {
+    public void addGameComment(Integer gameId, Comment newComment, User user, Game game) {
         // Check if game exists in database (meaning it already has comments tied to it)
         Optional<Game> gameOptional = gameRepository.findById(gameId);
-        Optional<User> userOptional = userRepository.findById(userId);
 
-        if(!gameOptional.isPresent()) {
+        if (!gameOptional.isPresent()) {
             // Save comment to comments table & include associated gameId & userId
             newComment.setUser(user);
             newComment.setGame(game);
         } else {
-            // Save the comment & link it to already existing game
+            // Save the comment & link it to already existing game & user
             Game existingGame = gameOptional.get();
-            User existingUser = userOptional.get();
-            newComment.setUser(existingUser);
+            newComment.setUser(user);
             newComment.setGame(existingGame);
         }
 
         commentRepository.save(newComment);
+    }
+
+    public void deleteComment(Integer id) {
+
+        commentRepository.deleteById(id);
+
     }
 }

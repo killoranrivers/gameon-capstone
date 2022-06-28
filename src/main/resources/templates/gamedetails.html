@@ -64,6 +64,7 @@
                     </div>
                     <form method="post" th:action="@{/gamedetails/{gameId}/comment (gameId = ${gameId})}" th:object="${newComment}" class="col-9 card p-3 mb-5 comment-form">
                         <div class="form-group">
+                            <input type="hidden" th:name="title" id="title">
                             <textarea class="form-control comment-textarea" th:field="*{text}" th:name="text"></textarea>
                         </div>
                         <input type="submit" class="btn btn-dark w-50 mt-3 mx-auto" value="Add Comment">

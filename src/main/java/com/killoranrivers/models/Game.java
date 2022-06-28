@@ -4,7 +4,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="games")
@@ -14,13 +16,21 @@ public class Game implements Serializable {
         this.id = id;
     }
 
+    public Game(Integer id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     @Id
     private Integer id;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "game", cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();
+    @Column
+    private String title;
 
-//    @OneToMany(mappedBy = "game")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "game", cascade = CascadeType.ALL)
+    private Set<Comment> comments = new HashSet<>();
+
+//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "game", cascade = CascadeType.ALL)
 //    private List<Favorite> favorites = new ArrayList<>();
 
 
@@ -32,11 +42,19 @@ public class Game implements Serializable {
         this.id = id;
     }
 
-    public List<Comment> getComments() {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Set<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="comments")
@@ -28,12 +29,15 @@ public class Comment implements Serializable {
     @Column(length = 10000)
     private String text;
 
-//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @Column
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL) // Need optional=false if you use LAZY loading. If I did FetchType.EAGER, it would return an object with the comment I wanted, PLUS all the data for the associated game, which I don't need.
-    @JoinColumn(name = "game_id", referencedColumnName = "id") // ReferencedColumnName tells it that game_id is referring to the variable called "id" in the Game model
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name = "game_id", referencedColumnName = "id")
     private Game game; // This variable is referred to in CommentRepository when I do the custom query, and Comment Service when I create game objects (rows in games table) (?)
 
     public Integer getId() {
@@ -50,6 +54,22 @@ public class Comment implements Serializable {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Game getGame() {

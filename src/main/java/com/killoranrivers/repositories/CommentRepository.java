@@ -13,8 +13,8 @@ import java.util.Set;
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
  // Custom queries here
     @Modifying(clearAutomatically=true, flushAutomatically=true)
-    @Query("SELECT c FROM Comment c JOIN c.game g ON g.id = ?1") // game has to match the object variable I declared in the Comment model
-    Set<Comment> findCommentsByGameId(Integer gameId); // gameId has to match the @PathVariable definition
+    @Query("SELECT c FROM Comment c JOIN c.game g ON g.id = ?1")
+    Set<Comment> findCommentsByGameId(Integer gameId);
 
     @Modifying(clearAutomatically=true, flushAutomatically=true)
     @Query("SELECT c FROM Comment c JOIN c.user u ON u.id = ?1")
